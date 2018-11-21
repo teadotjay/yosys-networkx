@@ -1,0 +1,13 @@
+# read design
+read_verilog counter.v
+hierarchy -check
+
+# high-level synthesis
+proc; opt; fsm; opt; memory; opt
+
+# mapping coarse-grain cells
+extract -map coarse_cells.v
+
+# show graph
+read_verilog -lib coarse_cells.v
+show
